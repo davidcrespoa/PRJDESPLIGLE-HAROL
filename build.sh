@@ -1,14 +1,20 @@
 #!/usr/bin/env bash
-set -e  # Detener si hay un error
+set -e
 
-echo "Instalando dependencias..."
+echo "🚀 Iniciando build en Render..."
+
+# Instalar dependencias
 pip install -r requirements.txt
 
-echo "Ejecutando migraciones..."
-python prjrender/manage.py makemigrations --noinput
-python prjrender/manage.py migrate --noinput
+# Entrar en el directorio del proyecto donde está manage.py
+cd prjrender
 
-echo "Recolectando archivos estáticos..."
-python prjrender/manage.py collectstatic --noinput
+echo "📦 Ejecutando migraciones..."
+python manage.py makemigrations --noinput
+python manage.py migrate --noinput
+
+echo "🧱 Recolectando archivos estáticos..."
+python manage.py collectstatic --noinput
 
 echo "✅ Build completado correctamente."
+
