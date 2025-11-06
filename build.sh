@@ -10,8 +10,8 @@ pip install -r requirements.txt
 cd prjrender
 
 echo "📦 Ejecutando migraciones..."
-python manage.py makemigrations --noinput
-python manage.py migrate --noinput
+python ./prjrender/manage.py makemigrations --noinput
+python ./prjrender/manage.py migrate --noinput
 
 echo "🧱 Recolectando archivos estáticos..."
 python manage.py collectstatic --noinput
